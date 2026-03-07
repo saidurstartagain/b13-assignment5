@@ -237,7 +237,7 @@ async function close() {
     });
 }
 
-function openModal(id) {
-    print(id)
+async function openModal(id) {
+    my_modal_4.showModal()
 }
 all()
