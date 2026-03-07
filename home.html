@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Tailwind and daisyUI link  -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <!-- Font awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+<body>
+    <!-- navbar -->
+
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1">
+                <div class="flex gap-0">
+                    <a href="" rel="noopener noreferrer"><img class="h-10 w-10" src="./assets/github-logo.png"
+                            alt=""></a>
+                    <a class="font-bold text-2xl">GitHub Issues Tracker</a>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i> <input type="text" placeholder="Search issues..."
+                        class="input input-bordered w-24 md:w-auto" />
+                </div>
+                <div><button class="btn btn-primary">+ New Issue</button></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <div class="w-9/12 mx-auto mt-15 bg-slate-200 p-2">
+        <ul class="menu lg:menu-horizontal  ">
+            <li id="allMenu" onclick="menuItem(this)"
+                class=" bg-blue-600 text-white border text-gray-500 mr-1 pr-3 pl-3"><a>All</a>
+            </li>
+            <li id="openMenu" onclick="menuItem(this)" class=" border text-gray-500 mr-1 pr-3 pl-3"><a>Open</a></li>
+            <li id="closeMenu" onclick="menuItem(this)" class="border text-gray-500 pr-3 pl-3"><a>Closed</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- Issue count section  -->
+
+    <div class="flex justify-between  w-9/12 mx-auto mt-2  bg-slate-200 p-3">
+        <div class="flex justify-center items-center ">
+            <img src="./assets/Aperture.png" alt="">
+            <div class="ml-1">
+                <h2 class="font-bold text-xl"> <span id="issueAmount" class=""></span>
+                    Issues</h2>
+                <p>Track and manage your project issues</p>
+            </div>
+        </div>
+        <div class="flex justify-center items-center">
+            <p class="mr-3"> <span class="text-red-900 h-2 w-2 rounded-full bg-red-400"></span> Open</p>
+            <p>Closed</p>
+        </div>
+    </div>
+
+
+    <!-- Card section  -->
+
+
+    <div id="cardSection" class=" grid grid-cols-4 gap-1 w-9/12 mx-auto mt-2  bg-slate-200 p-4">
+
+        <!-- card one -->
+
+        <div class="  card w-60 bg-base-100 card-md shadow-sm">
+            <div class="flex justify-between items-center pt-5 pr-5 pl-5">
+                <img src="./assets/Open-Status.png" alt="">
+                <div class="badge badge-warning">Warning</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Fix navigation menu on mobile devices</h2>
+                <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+                <div class="flex gap-1">
+                    <div class="badge badge-warning">Warning</div>
+                    <div class="badge badge-warning">Warning</div>
+                </div>
+                <hr>
+
+                <div>
+                    <p>#1 by john_doe</p>
+                    <p class="mt-1">1/15/2024</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- card two -->
+
+
+
+        <!-- Card four -->
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
