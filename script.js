@@ -52,14 +52,57 @@ async function all() {
     // print(data)
     print(dataArr)
     issueAmount.innerHTML = totalData
+    cardSection.innerHTML = ''
+    dataArr.forEach(element => {
 
-    const cardSectionOn = document.createElement('div')
+        if (element.status == "open") {
+            borderColor = "border-t-3 border-green-500";
+            logoName = "./assets/Open-Status.png"
+        } else {
+            borderColor = "border-t-3 border-red-500";
+            logoName = "./assets/Closed- Status .png"
+        }
 
-    cardSectionOn.innerHTML = `
-    
+        if (element.priority == "high") {
+            badgeColor = "badge-error"
+        } else if (element.priority == "medium") {
+            badgeColor = "badge-warning"
+        } else {
+            badgeColor = "badge-neutral"
+
+        }
+
+        const cardSectionOn = document.createElement('div')
+
+        cardSectionOn.innerHTML = `
+    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+            <div class="flex justify-between items-center pt-5 pr-5 pl-5">
+                <img src="${logoName}" alt="">
+                <div class="font-bold badge ${badgeColor}">${element.priority}</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">${element.title}</h2>
+                <p class="line-clamp-2" >${element.description}</p>
+                <div class="flex gap-1">
+                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
+                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                </div>
+                <hr>
+
+                <div>
+                    <p>#1 by ${element.author}</p>
+                    <p class="mt-1">${element.createdAt}</p>
+                </div>
+
+            </div>
+        </div>
     `
 
-    cardSection.append(cardSectionOn)
+
+        cardSection.append(cardSectionOn)
+    });
+
+
 
 }
 
@@ -74,6 +117,57 @@ async function open() {
     let filterOpen = data.data.filter((item) => item.status == 'open')
     let statusOpen = filterOpen;
     issueAmount.innerHTML = statusOpen.length
+    // const dataArr = data.data
+    cardSection.innerHTML = ''
+
+    filterOpen.forEach(element => {
+
+        if (element.status == "open") {
+            borderColor = "border-t-3 border-green-500";
+            logoName = "./assets/Open-Status.png"
+        } else {
+            borderColor = "border-t-3 border-red-500";
+            logoName = "./assets/Closed- Status .png"
+        }
+
+        if (element.priority == "high") {
+            badgeColor = "badge-error"
+        } else if (element.priority == "medium") {
+            badgeColor = "badge-warning"
+        } else {
+            badgeColor = "badge-neutral"
+
+        }
+
+        const cardSectionOn = document.createElement('div')
+
+        cardSectionOn.innerHTML = `
+    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+            <div class="flex justify-between items-center pt-5 pr-5 pl-5">
+                <img src="${logoName}" alt="">
+                <div class="font-bold badge ${badgeColor}">${element.priority}</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">${element.title}</h2>
+                <p class="line-clamp-2" >${element.description}</p>
+                <div class="flex gap-1">
+                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
+                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                </div>
+                <hr>
+
+                <div>
+                    <p>#1 by ${element.author}</p>
+                    <p class="mt-1">${element.createdAt}</p>
+                </div>
+
+            </div>
+        </div>
+    `
+
+
+        cardSection.append(cardSectionOn)
+    });
     // print(statusOpen.length)
 }
 
@@ -88,5 +182,54 @@ async function close() {
     issueAmount.innerHTML = statusClose.length
     // print(statusClose.length)
     // print(data)
+    cardSection.innerHTML = ''
+    statusClose.forEach(element => {
+
+        if (element.status == "open") {
+            borderColor = "border-t-3 border-green-500";
+            logoName = "./assets/Open-Status.png"
+        } else {
+            borderColor = "border-t-3 border-red-500";
+            logoName = "./assets/Closed- Status .png"
+        }
+
+        if (element.priority == "high") {
+            badgeColor = "badge-error"
+        } else if (element.priority == "medium") {
+            badgeColor = "badge-warning"
+        } else {
+            badgeColor = "badge-neutral"
+
+        }
+
+        const cardSectionOn = document.createElement('div')
+
+        cardSectionOn.innerHTML = `
+    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+            <div class="flex justify-between items-center pt-5 pr-5 pl-5">
+                <img src="${logoName}" alt="">
+                <div class="font-bold badge ${badgeColor}">${element.priority}</div>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">${element.title}</h2>
+                <p class="line-clamp-2" >${element.description}</p>
+                <div class="flex gap-1">
+                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
+                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                </div>
+                <hr>
+
+                <div>
+                    <p>#1 by ${element.author}</p>
+                    <p class="mt-1">${element.createdAt}</p>
+                </div>
+
+            </div>
+        </div>
+    `
+
+
+        cardSection.append(cardSectionOn)
+    });
 }
 all()

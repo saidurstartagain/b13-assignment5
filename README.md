@@ -6,7 +6,25 @@
 
 ---
 
+assignee
+: 
+"jane_smith"
 
+createdAt
+: 
+"2024-01-15T10:30:00Z"
+
+id
+: 
+1
+labels
+: 
+(2) ['bug', 'help wanted']
+
+
+
+: 
+"2024-01-15T10:30:00Z"
 
 # Assignment-05: GitHub Issues Tracker
 
