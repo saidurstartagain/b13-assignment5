@@ -12,6 +12,8 @@ const cardSection = document.getElementById('cardSection')
 
 const title = document.getElementById('title')
 
+const loadingSpinner = document.getElementById('loadingSpinner')
+
 
 
 // menu active and call function
@@ -51,6 +53,7 @@ async function all() {
     const data = await res.json()
     const totalData = data.data.length
     const dataArr = data.data
+    spiner()
     // print(data)
     // print(dataArr)
     issueAmount.innerHTML = totalData
@@ -145,7 +148,7 @@ async function open() {
     issueAmount.innerHTML = statusOpen.length
     // const dataArr = data.data
     cardSection.innerHTML = ''
-
+    spiner()
     filterOpen.forEach(element => {
 
         const labels = element.labels
@@ -231,6 +234,7 @@ async function close() {
     issueAmount.innerHTML = statusClose.length
     // print(statusClose.length)
     // print(data)
+    spiner()
     cardSection.innerHTML = ''
     statusClose.forEach(element => {
         // print(element.id)
@@ -359,4 +363,12 @@ async function openModal(id) {
     })
 
 }
+
+
+//  loding spinner 
+
+function spiner() {
+    loadingSpinner.classList.add('hidden')
+}
+
 all() 
