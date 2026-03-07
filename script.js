@@ -58,6 +58,29 @@ async function all() {
 
     dataArr.forEach(element => {
 
+        const labels = element.labels
+        // print(labels)
+        // let lavelVariable = 0
+        let labelsHTML = ""
+        // print(labels)
+        labels.forEach(label => {
+            let badgeClass = ""
+
+            if (label == "bug") {
+                badgeClass = "badge-warning"
+            }
+            else if (label == "good first issue") {
+                badgeClass = "badge-success"
+            }
+            else if (label == "enhancement") {
+                badgeClass = "badge-info"
+            }
+            else {
+                badgeClass = "badge-neutral"
+            }
+            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+        })
+
         if (element.status == "open") {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
@@ -87,8 +110,8 @@ async function all() {
                 <h2 onclick="openModal(${element.id})" id="title" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
-                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
-                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                
+                     ${labelsHTML}
                 </div>
                 <hr>
 
@@ -125,6 +148,30 @@ async function open() {
 
     filterOpen.forEach(element => {
 
+        const labels = element.labels
+        // print(labels)
+        // let lavelVariable = 0
+        let labelsHTML = ""
+        // print(labels)
+        labels.forEach(label => {
+            let badgeClass = ""
+
+            if (label == "bug") {
+                badgeClass = "badge-warning"
+            }
+            else if (label == "good first issue") {
+                badgeClass = "badge-success"
+            }
+            else if (label == "enhancement") {
+                badgeClass = "badge-info"
+            }
+            else {
+                badgeClass = "badge-neutral"
+            }
+            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+        })
+
+
         if (element.status == "open") {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
@@ -154,8 +201,7 @@ async function open() {
                 <h2 id="title" onclick="openModal(${element.id})" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
-                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
-                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                     ${labelsHTML}
                 </div>
                 <hr>
 
@@ -189,6 +235,30 @@ async function close() {
     statusClose.forEach(element => {
         // print(element.id)
 
+        const labels = element.labels
+        // print(labels)
+        // let lavelVariable = 0
+        let labelsHTML = ""
+        // print(labels)
+        labels.forEach(label => {
+            let badgeClass = ""
+
+            if (label == "bug") {
+                badgeClass = "badge-warning"
+            }
+            else if (label == "good first issue") {
+                badgeClass = "badge-success"
+            }
+            else if (label == "enhancement") {
+                badgeClass = "badge-info"
+            }
+            else {
+                badgeClass = "badge-neutral"
+            }
+            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+        })
+
+
         if (element.status == "open") {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
@@ -218,8 +288,7 @@ async function close() {
                 <h2 id="title" onclick="openModal(${element.id})" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
-                    <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
-                    <div class=" font-bold badge badge-outline badge-warning">Warning</div>
+                     ${labelsHTML}
                 </div>
                 <hr>
 
@@ -239,12 +308,12 @@ async function close() {
 
 async function openModal(id) {
     my_modal_4.showModal()
-    print(id)
+    // print(id)
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
     const data = await res.json()
     const title = data.data.title
-    print(data.data)
+    // print(data.data)
     const cardTitle = document.getElementById('cardTitle')
     cardTitle.innerHTML = data.data.title
     const statusID = document.getElementById('statusID')
@@ -260,6 +329,7 @@ async function openModal(id) {
     const priority = document.getElementById('priority')
     priority.innerHTML = data.data.priority
 
-    // print(cardTitle)
+    // print(data.data.labels)
+    const labels = data.data.labels
 }
 all() 
