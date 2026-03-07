@@ -10,6 +10,8 @@ const closeMenu = document.getElementById('closeMenu')
 
 const cardSection = document.getElementById('cardSection')
 
+const title = document.getElementById('title')
+
 
 
 // menu active and call function
@@ -50,9 +52,10 @@ async function all() {
     const totalData = data.data.length
     const dataArr = data.data
     // print(data)
-    print(dataArr)
+    // print(dataArr)
     issueAmount.innerHTML = totalData
     cardSection.innerHTML = ''
+
     dataArr.forEach(element => {
 
         if (element.status == "open") {
@@ -81,7 +84,7 @@ async function all() {
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
             </div>
             <div class="card-body">
-                <h2 class="card-title">${element.title}</h2>
+                <h2 onclick="openModal(${element.id})" id="title" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
                     <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
@@ -148,7 +151,7 @@ async function open() {
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
             </div>
             <div class="card-body">
-                <h2 class="card-title">${element.title}</h2>
+                <h2 id="title" onclick="openModal(${element.id})" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
                     <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
@@ -184,6 +187,7 @@ async function close() {
     // print(data)
     cardSection.innerHTML = ''
     statusClose.forEach(element => {
+        // print(element.id)
 
         if (element.status == "open") {
             borderColor = "border-t-3 border-green-500";
@@ -211,7 +215,7 @@ async function close() {
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
             </div>
             <div class="card-body">
-                <h2 class="card-title">${element.title}</h2>
+                <h2 id="title" onclick="openModal(${element.id})" class="card-title">${element.title}</h2>
                 <p class="line-clamp-2" >${element.description}</p>
                 <div class="flex gap-1">
                     <div class=" font-bold badge badge-outline badge-secondary">Secondary</div>
@@ -231,5 +235,9 @@ async function close() {
 
         cardSection.append(cardSectionOn)
     });
+}
+
+function openModal(id) {
+    print(id)
 }
 all()
