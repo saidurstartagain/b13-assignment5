@@ -331,5 +331,32 @@ async function openModal(id) {
 
     // print(data.data.labels)
     const labels = data.data.labels
+    let labelsHTML = ""
+    // print(labels)
+    const labelsContainer = document.getElementById("labelsContainer")
+    labelsContainer.innerHTML = ""
+    labels.forEach(label => {
+        let badgeClass = ""
+
+        if (label == "bug") {
+            badgeClass = "badge-warning"
+        }
+        else if (label == "good first issue") {
+            badgeClass = "badge-success"
+        }
+        else if (label == "enhancement") {
+            badgeClass = "badge-info"
+        }
+        else {
+            badgeClass = "badge-neutral"
+        }
+        labelsContainer.innerHTML += `
+        <div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">
+            ${label}
+        </div>
+    `
+
+    })
+
 }
 all() 
