@@ -239,5 +239,14 @@ async function close() {
 
 async function openModal(id) {
     my_modal_4.showModal()
+    print(id)
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+    const data = await res.json()
+    const title = data.data.title
+    print(data.data)
+    const cardTitle = document.getElementById('cardTitle')
+    cardTitle.innerHTML = data.data.title
+    // print(cardTitle)
 }
-all()
+all() 
