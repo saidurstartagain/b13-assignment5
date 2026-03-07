@@ -247,6 +247,19 @@ async function openModal(id) {
     print(data.data)
     const cardTitle = document.getElementById('cardTitle')
     cardTitle.innerHTML = data.data.title
+    const statusID = document.getElementById('statusID')
+    statusID.innerHTML = data.data.status
+    const authorID = document.getElementById('authorID')
+    authorID.innerHTML = data.data.author
+    const createdID = document.getElementById('createdID')
+    createdID.innerHTML = data.data.createdAt
+    const descriptionID = document.getElementById('descriptionID')
+    descriptionID.innerHTML = data.data.description
+    const authorIDagin = document.getElementById('authorIDagin')
+    authorIDagin.innerHTML = data.data.author
+    const priority = document.getElementById('priority')
+    priority.innerHTML = data.data.priority
+
     // print(cardTitle)
 }
 all() 
