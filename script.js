@@ -14,6 +14,8 @@ const title = document.getElementById('title')
 
 const loadingSpinner = document.getElementById('loadingSpinner')
 
+const searchInput = document.getElementById('searchInput')
+
 
 
 // menu active and call function
@@ -370,5 +372,112 @@ async function openModal(id) {
 function spiner() {
     loadingSpinner.classList.add('hidden')
 }
+
+
+//  search handler 
+
+searchInput.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+        const searchValue = searchInput.value
+        searchResult(searchValue)
+    }
+
+})
+
+async function searchResult(searchValue) {
+
+    const searchInput = document.getElementById("searchInput")
+    const searchValueOFInput = searchInput.value.trim().toLowerCase()
+    // print(searchValueOFInput)
+
+    // const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    // print(searchValue)
+    const data = await res.json()
+    const dataSearch = data.data
+    // print(dataSearch)
+
+    issueAmount.innerHTML = dataSearch.length
+
+    cardSection.innerHTML = ''
+    spiner()
+    dataSearch.forEach(element => {
+
+        const labels = element.labels
+        // print(labels)
+        // let lavelVariable = 0
+        let labelsHTML = ""
+        // print(labels)
+        labels.forEach(label => {
+            let badgeClass = ""
+
+            if (label == "bug") {
+                badgeClass = "badge-warning"
+            }
+            else if (label == "good first issue") {
+                badgeClass = "badge-success"
+            }
+            else if (label == "enhancement") {
+                badgeClass = "badge-info"
+            }
+            else {
+                badgeClass = "badge-neutral"
+            }
+            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+        })
+
+
+        if (element.status == "open") {
+            borderColor = "border-t-3 border-green-500";
+            logoName = "./assets/Open-Status.png"
+        } else {
+            borderColor = "border-t-3 border-red-500";
+            logoName = "./assets/Closed- Status .png"
+        }
+
+        if (element.priority == "high") {
+            badgeColor = "badge-error"
+        } else if (element.priority == "medium") {
+            badgeColor = "badge-warning"
+        } else {
+            badgeColor = "badge-neutral"
+
+        }
+
+        const cardSectionOn = document.createElement('div')
+
+        cardSectionOn.innerHTML = `
+    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+            <div class="flex justify-between items-center pt-5 pr-5 pl-5">
+                <img src="${logoName}" alt="">
+                <div class="font-bold badge ${badgeColor}">${element.priority}</div>
+            </div>
+            <div class="card-body">
+                <h2 id="title" onclick="openModal(${element.id})" class="card-title">${element.title}</h2>
+                <p class="line-clamp-2" >${element.description}</p>
+                <div class="flex gap-1">
+                     ${labelsHTML}
+                </div>
+                <hr>
+
+                <div>
+                    <p>#1 by ${element.author}</p>
+                    <p class="mt-1">${element.createdAt}</p>
+                </div>
+
+            </div>
+        </div>
+    `
+
+
+        cardSection.append(cardSectionOn)
+    });
+
+
+
+
+}
+
 
 all() 
