@@ -90,7 +90,7 @@ async function all() {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
         } else {
-            borderColor = "border-t-3 border-red-500";
+            borderColor = "border-t-3 border-purple-500";
             logoName = "./assets/Closed- Status .png"
         }
 
@@ -269,7 +269,7 @@ async function close() {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
         } else {
-            borderColor = "border-t-3 border-red-500";
+            borderColor = "border-t-3 border-purple-500";
             logoName = "./assets/Closed- Status .png"
         }
 
@@ -432,7 +432,7 @@ async function searchResult(searchValue) {
             borderColor = "border-t-3 border-green-500";
             logoName = "./assets/Open-Status.png"
         } else {
-            borderColor = "border-t-3 border-red-500";
+            borderColor = "border-t-3 border-purple-500";
             logoName = "./assets/Closed- Status .png"
         }
 
