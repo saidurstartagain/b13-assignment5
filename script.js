@@ -83,7 +83,7 @@ async function all() {
             else {
                 badgeClass = "badge-neutral"
             }
-            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+            labelsHTML += `<div class=" h-full  badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
         })
 
         if (element.status == "open") {
@@ -106,7 +106,7 @@ async function all() {
         const cardSectionOn = document.createElement('div')
 
         cardSectionOn.innerHTML = `
-    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+    <div class=" ${borderColor}  card w-72 bg-base-100 card-md shadow-sm">
             <div class="flex justify-between items-center pt-5 pr-5 pl-5">
                 <img src="${logoName}" alt="">
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
@@ -173,7 +173,7 @@ async function open() {
             else {
                 badgeClass = "badge-neutral"
             }
-            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+            labelsHTML += `<div class=" h-full  badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
         })
 
 
@@ -197,7 +197,7 @@ async function open() {
         const cardSectionOn = document.createElement('div')
 
         cardSectionOn.innerHTML = `
-    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+    <div class=" ${borderColor}  card w-72 bg-base-100 card-md shadow-sm">
             <div class="flex justify-between items-center pt-5 pr-5 pl-5">
                 <img src="${logoName}" alt="">
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
@@ -261,7 +261,7 @@ async function close() {
             else {
                 badgeClass = "badge-neutral"
             }
-            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+            labelsHTML += `<div class=" h-full  badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
         })
 
 
@@ -285,7 +285,7 @@ async function close() {
         const cardSectionOn = document.createElement('div')
 
         cardSectionOn.innerHTML = `
-    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+    <div class=" ${borderColor}  card w-72 bg-base-100 card-md shadow-sm">
             <div class="flex justify-between items-center pt-5 pr-5 pl-5">
                 <img src="${logoName}" alt="">
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
@@ -424,7 +424,7 @@ async function searchResult(searchValue) {
             else {
                 badgeClass = "badge-neutral"
             }
-            labelsHTML += `<div class=" h-full font-bold badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
+            labelsHTML += `<div class=" h-full  badge badge-outline badge-secondary ${badgeClass}">${label}</div>`
         })
 
 
@@ -448,7 +448,7 @@ async function searchResult(searchValue) {
         const cardSectionOn = document.createElement('div')
 
         cardSectionOn.innerHTML = `
-    <div class=" ${borderColor}  card w-60 bg-base-100 card-md shadow-sm">
+    <div class=" ${borderColor}  card w-72 bg-base-100 card-md shadow-sm">
             <div class="flex justify-between items-center pt-5 pr-5 pl-5">
                 <img src="${logoName}" alt="">
                 <div class="font-bold badge ${badgeColor}">${element.priority}</div>
